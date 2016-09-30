@@ -1,0 +1,48 @@
+{
+  "name": "Vulcan.core.auth.sharedapp",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Chandima Gunawardhana <chandimacpgz@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "angular-animate": "^1.5.5",
+    "angular-resource": "^1.5.5",
+    "angular-material": "^1.0.7",
+    "angular-local-storage": "^0.2.7",
+    "angular-jwt": "^0.0.9",
+    "jquery": "^2.2.3",
+    "angular-ui-router": "^0.2.18"
+  },
+  "install": {
+    "path": "lib",
+    "sources": {
+      "angular": "bower_components/angular/angular.min.js",
+      "angular-route": "bower_components/angular-route/angular-route.min.js",
+      "angular-animate": "bower_components/angular-animate/angular-animate.min.js",
+      "angular-resource": "bower_components/angular-resource/angular-resource.min.js",
+      "angular-material": [
+        "bower_components/angular-material/angular-material.min.js",
+        "bower_components/angular-material/angular-material.min.css",
+        "bower_components/angular-aria/angular-aria.min.js",
+        "bower_components/angular-messages/angular-messages.min.js"
+      ],
+      "angular-local-storage": "bower_components/angular-local-storage/dist/angular-local-storage.min.js",
+      "angular-jwt": "bower_components/angular-jwt/dist/angular-jwt.min.js",
+      "jquery": "bower_components/jquery/dist/jquery.min.js",
+      "angular-ui-router": "bower_components/angular-ui-router/release/angular-ui-router.min.js"
+    }
+  }
+}

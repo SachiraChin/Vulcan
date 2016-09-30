@@ -1,0 +1,33 @@
+﻿<md-toolbar md-scroll-shrink class="md-hue-2">
+    <h2 class="md-toolbar-tools">Organization Configuration</h2>
+</md-toolbar>
+<md-content layout-padding>
+    <form>
+        <md-content layout-gt-sm="column">
+            <input ng-hide="true" ng-model="organization.id" value="{{organization.id}}" />
+            <md-input-container class="md-block">
+                <input ng-model="organization.name" value="{{organization.name}}" type="text" required placeholder="Name" id="reginput" />
+            </md-input-container>
+            <md-input-container class="md-block">
+                <input ng-model="organization.address" value="{{organization.address}}" type="text" required placeholder="Address" id="reginput" />
+            </md-input-container>
+            <md-input-container class="md-block">
+                <input ng-model="organization.email" value="{{organization.email}}" type="email" placeholder="Email" required id="reginput" />
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>TimeZone</label>
+                <md-select ng-model="organization.timezone" id="reginput">
+                    <md-option ng-repeat="timezone in TimeZones">
+                        {{timezone.text}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <section layout="row" layout-align="center center" layout-wrap>
+                <md-button type="submit" class="md-raised md-primary" ng-show="organization.id==null" ng-click="setOrgDetail()">Submit</md-button>
+            </section>
+            <section layout="row" layout-align="center center" layout-wrap>
+                <md-button type="submit" class="md-raised md-primary" ng-show="organization.id!=null" ng-click="EditOrgDetail()">Submit</md-button>
+            </section>
+        </md-content>
+    </form>
+</md-content>

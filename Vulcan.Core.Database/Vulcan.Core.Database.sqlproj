@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Vulcan.Core.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b843c518-200a-42db-82ce-01e88003e92f}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Vulcan.Core.Database</RootNamespace>
+    <AssemblyName>Vulcan.Core.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultSchema>core</DefaultSchema>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\Vulcan.Core.Auth.ProviderBase\Dacpacs\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\Vulcan.Core.Auth.ProviderBase\Dacpacs\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SqlTargetName>Vulcan.Core</SqlTargetName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="DataTypes" />
+    <Folder Include="Schemas" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="DataTypes\Validations.sql" />
+    <Build Include="Schemas\core.sql" />
+    <Build Include="StoredProcedures\base_Field_Add.sql" />
+    <Build Include="StoredProcedures\base_Field_Get.sql" />
+    <Build Include="StoredProcedures\base_FieldValidation_Get.sql" />
+    <Build Include="Tables\Fields.sql" />
+    <Build Include="Tables\FieldValidations.sql" />
+    <Build Include="StoredProcedures\base_Field_Delete.sql" />
+    <Build Include="StoredProcedures\base_Field_Update.sql" />
+    <Build Include="StoredProcedures\base_Field_GetById.sql" />
+    <Build Include="StoredProcedures\base_FieldValidation_GetByFieldId.sql" />
+    <Build Include="StoredProcedures\base_FieldValidation_Update.sql" />
+    <Build Include="StoredProcedures\base_FieldValidation_Add.sql" />
+    <Build Include="StoredProcedures\base_FieldValidation_Delete.sql" />
+    <Build Include="StoredProcedures\base_FieldValidation_GetById.sql" />
+    <Build Include="Tables\Migrations.sql" />
+    <Build Include="Tables\MigrationEntries.sql" />
+    <Build Include="StoredProcedures\base_Migration_Add.sql" />
+    <Build Include="DataTypes\UniqueIdentifierList.sql" />
+    <Build Include="StoredProcedures\base_Migration_GetExistingCount.sql" />
+    <Build Include="StoredProcedures\base_MigrationEntry_Add.sql" />
+    <Build Include="Tables\FieldChoices.sql" />
+    <Build Include="DataTypes\Choices.sql" />
+    <Build Include="StoredProcedures\base_FieldChoice_Get.sql" />
+    <Build Include="StoredProcedures\base_Migration_MigrateTable.sql" />
+    <Build Include="StoredProcedures\base_Migrations_MigrateSchema.sql" />
+    <Build Include="StoredProcedures\base_Constraints_RequiredConstraint_Add.sql" />
+    <Build Include="Tables\FieldConstraints.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Vulcan.Core.Database.publish.xml" />
+  </ItemGroup>
+</Project>

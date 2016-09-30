@@ -1,0 +1,31 @@
+﻿#dashboardbnt {
+    height: 100px;
+}
+#reginput{
+    width:50%;
+   }
+
+md-input-container label {
+    color:black;
+}
+md-input-container md-select aria-label {
+    color:black;
+} 
+.allrole-option {
+  float: left;
+  width: 20%;
+  box-sizing: border-box;
+  padding: 0 8px; 
+}
+
+.md-item-text {
+  padding: 8px;
+  background: #f0f0f0;
+  border-radius: 3px; 
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}

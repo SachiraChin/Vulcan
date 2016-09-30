@@ -1,0 +1,26 @@
+﻿CREATE TABLE [auth].[ApiClients]
+(
+	[Id] INT NOT NULL identity(100000, 1),
+	[ClientId] varchar(32) not null,
+	[ClientSecretHash] varchar(max) not null,
+	[ClientSecretSalt] varchar(max) not null,
+	[Type] int not null,
+	--[DisplayName] nvarchar(128),
+	[TokenExpireTimeMinutes] int null,
+	[CreatedDate] as getdate(),
+	[CreatedByUserId] int null,
+	[CreatedByClientId] int null,
+	[UpdatedByUserId] int null,
+	[UpdatedByClientId] int null,
+	[UpdatedDate] datetime null,
+	[IsDeleted] bit not null default(0),
+	[SystemId] bigint not null default([auth].[GetSystemId]()),
+	[IsSystem] bit not null default(0),
+	constraint PK_ApiClients_ID primary key ([Id]),
+	constraint UN_ApiClients_ClientId unique ([ClientId]),
+	constraint UN_ApiClients_SystemId unique ([SystemId]),
+	constraint FK_ApiClients_CreatedByClientId foreign key ([CreatedByClientId]) references [auth].[ApiClients]([Id]),
+	constraint FK_ApiClients_CreatedByUserId foreign key ([CreatedByUserId]) references [auth].[ApiUsers]([Id]),
+	constraint FK_ApiClients_UpdatedByClientId foreign key ([UpdatedByClientId]) references [auth].[ApiClients]([Id]),
+	constraint FK_ApiClients_UpdatedByUserId foreign key ([UpdatedByUserId]) references [auth].[ApiUsers]([Id])
+)

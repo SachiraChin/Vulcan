@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html ng-app="sharedPortalApp">
+<head>
+    <title>Shared Portal</title>
+    <meta charset="utf-8" />
+    <link type="text/css" href="lib/angular-material/angular-material.min.css" rel="stylesheet" />
+    <link type="text/css" href="app.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="lib/angular-animate/angular-animate.min.js"></script>
+    <!--<script type="text/javascript" src="lib/angular-route/angular-route.min.js"></script>-->
+    <script type="text/javascript" src="lib/angular-ui-router/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="lib/angular-material/angular-aria.min.js"></script>
+    <script type="text/javascript" src="lib/angular-material/angular-messages.min.js"></script>
+    <script type="text/javascript" src="lib/angular-material/angular-material.min.js"></script>
+    <script type="text/javascript" src="lib/angular-resource/angular-resource.min.js"></script> 
+    <script type="text/javascript" src="lib/angular-local-storage/angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="lib/angular-jwt/angular-jwt.min.js"></script>
+
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="controllers/organizationConfigController.js"></script>
+    <script type="text/javascript" src="controllers/adminDashboardController.js"></script>
+    <script type="text/javascript" src="controllers/groupController.js"></script>
+    <script type="text/javascript" src="controllers/loginController.js"></script>
+    <script type="text/javascript" src="services/groupService.js"></script>
+    <script type="text/javascript" src="services/authenticateService.js"></script>
+    <script type="text/javascript" src="services/organizationService.js"></script>
+    <script type="text/javascript" src="services/applicationLoadService.js"></script>
+    <!--
+    To collect end-user usage analytics about your application,
+    insert the following script into each page you want to track.
+    Place this code immediately before the closing </head> tag,
+    and before any other scripts. Your first data will appear
+    automatically in just a few seconds.
+    -->
+    <script type="text/javascript">
+  var appInsights=window.appInsights||function(config){
+    function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;for(s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",u.getElementsByTagName(o)[0].parentNode.appendChild(s),t.cookie=u.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
+    }({
+        instrumentationKey:"51af4dc8-6e64-43fe-bf07-eabff4f1a216"
+    });
+
+    window.appInsights=appInsights;
+    appInsights.trackPageView();
+    </script>
+</head>
+<body>
+    <md-toolbar class="md-primary">
+        <div class="md-toolbar-tools">
+            <h2 class="md-flex"><a href="/#/dashboard"><i class="material-icons md-48"></i>Shared Portal</a></h2>
+        </div>
+    </md-toolbar>
+    <div>
+        <div ui-view></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿<md-toolbar md-scroll-shrink class="md-hue-2">
+    <h2 class="md-toolbar-tools">Login</h2>
+</md-toolbar>
+<section layout="row" layout-align="center center" layout-wrap>
+
+    <md-progress-circular md-mode="indeterminate" md-diameter="96" ng-show="isWaitingForJob"></md-progress-circular>
+
+    <md-button ng-show="showLoginButtons && !isWaitingForJob" ng-href="{{authApiPath}}/azureauth?requireAdminConcent=false&redirectUrl={{redirectPath}}">Login</md-button>
+    <md-button ng-show="showLoginButtons && !isWaitingForJob" ng-href="{{authApiPath}}/azureauth?requireAdminConcent=true&redirectUrl={{redirectPath}}">Grant Permissions to Organization</md-button>
+</section>
+
+

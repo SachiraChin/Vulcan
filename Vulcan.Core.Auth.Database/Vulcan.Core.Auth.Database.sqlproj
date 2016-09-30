@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Vulcan.Core.Auth.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{93aafa36-8de2-43f9-8f64-246fa5ca2fd6}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Vulcan.Core.Auth.Database</RootNamespace>
+    <AssemblyName>Vulcan.Core.Auth.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultSchema>auth</DefaultSchema>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>..\Vulcan.Core.Auth.ProviderBase\Dacpacs\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\Vulcan.Core.Auth.ProviderBase\Dacpacs\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <SqlTargetName>Vulcan.Core.Auth</SqlTargetName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Schemas" />
+    <Folder Include="Tables" />
+    <Folder Include="Triggers" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="PostDeploymentScripts" />
+    <Folder Include="DataTypes" />
+    <Folder Include="Functions" />
+    <Folder Include="Views" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schemas\auth.sql" />
+    <Build Include="Tables\ApiClients.sql" />
+    <Build Include="Tables\ApiClientOrigins.sql" />
+    <Build Include="Tables\ApiUsers.sql" />
+    <Build Include="Tables\Audits.sql" />
+    <None Include="Triggers\ApiUsersAuditTrigger.sql" />
+    <None Include="Triggers\ApiClientsAuditTrigger.sql" />
+    <None Include="Triggers\ApiClientOriginsAuditTrigger.sql" />
+    <Build Include="Tables\Roles.sql" />
+    <None Include="Triggers\RolesAuditTrigger.sql" />
+    <Build Include="Tables\ApiUserRoles.sql" />
+    <None Include="Triggers\ApiUserRolesAuditTrigger.sql" />
+    <Build Include="Tables\ApiClientRoles.sql" />
+    <Build Include="Tables\Audiences.sql" />
+    <None Include="Triggers\AudiencesAuditTrigger.sql" />
+    <Build Include="Tables\RefreshTokens.sql" />
+    <Build Include="StoredProcedures\auth_Audiences_GetByAudienceId.sql" />
+    <Build Include="StoredProcedures\auth_ApiClients_GetByClientId.sql" />
+    <Build Include="StoredProcedures\auth_ApiClientOrigins_GetByClientId.sql" />
+    <Build Include="StoredProcedures\auth_Roles_GetByClientId.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_GetByUsername.sql" />
+    <Build Include="StoredProcedures\auth_Roles_GetByUsername.sql" />
+    <Build Include="StoredProcedures\auth_RefreshTokens_Add.sql" />
+    <Build Include="StoredProcedures\auth_RefreshTokens_DeleteByTokenHash.sql" />
+    <Build Include="StoredProcedures\auth_ApiClients_Add.sql" />
+    <Build Include="StoredProcedures\auth_ApiClients_Update.sql" />
+    <Build Include="StoredProcedures\auth_ApiClients_Delete.sql" />
+    <Build Include="StoredProcedures\auth_ApiClientOrigins_Add.sql" />
+    <Build Include="StoredProcedures\auth_ApiClientOrigins_Delete.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_Add.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_Update.sql" />
+    <Build Include="StoredProcedures\auth_ApiClientOrigins_GetById.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_Delete.sql" />
+    <Build Include="StoredProcedures\auth_ApiClients_GetBySystemId.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_GetBySystemId.sql" />
+    <Build Include="StoredProcedures\auth_RefreshTokens_GetByTokenHash.sql" />
+    <Build Include="DataTypes\IntList.sql" />
+    <Build Include="StoredProcedures\auth_Roles_GetByIdList.sql" />
+    <Build Include="StoredProcedures\auth_Roles_AddApiUserRoles.sql" />
+    <Build Include="StoredProcedures\auth_Roles_DeleteApiUserRoles.sql" />
+    <Build Include="StoredProcedures\auth_Roles_GetByUserSystemId.sql" />
+    <Build Include="Functions\GetSystemId.sql" />
+    <Build Include="Views\NewId.sql" />
+    <Build Include="StoredProcedures\auth_Roles_Get.sql" />
+    <Build Include="StoredProcedures\auth_Roles_GetByClientSystemId.sql" />
+    <Build Include="StoredProcedures\auth_Roles_Add.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_GetById.sql" />
+    <Build Include="StoredProcedures\auth_Groups_Add.sql" />
+    <Build Include="StoredProcedures\auth_Groups_Delete.sql" />
+    <Build Include="StoredProcedures\auth_Groups_GetByAudienceId.sql" />
+    <Build Include="StoredProcedures\auth_Groups_GetById.sql" />
+    <Build Include="StoredProcedures\auth_Groups_Update.sql" />
+    <Build Include="StoredProcedures\auth_GroupRoles_Add.sql" />
+    <Build Include="StoredProcedures\auth_GroupRoles_Delete.sql" />
+    <Build Include="StoredProcedures\auth_Roles_GetByGroupId.sql" />
+    <Build Include="StoredProcedures\auth_GroupRoles_Update.sql" />
+    <Build Include="StoredProcedures\auth_GroupUsers_Add.sql" />
+    <Build Include="StoredProcedures\auth_GroupUsers_Delete.sql" />
+    <Build Include="StoredProcedures\auth_GroupUsers_GetbyApiUserId.sql" />
+    <Build Include="StoredProcedures\auth_GroupUsers_GetByApiUserIdGroupId.sql" />
+    <Build Include="StoredProcedures\auth_GroupUsers_Update.sql" />
+    <Build Include="StoredProcedures\auth_Roles_GetByUsernameAudienceId.sql" />
+    <Build Include="Tables\Groups.sql" />
+    <Build Include="Tables\GroupRoles.sql" />
+    <Build Include="Tables\GroupUsers.sql" />
+    <Build Include="StoredProcedures\auth_Groups_GetByName.sql" />
+    <Build Include="Tables\Organizations.sql" />
+    <Build Include="StoredProcedures\auth_Organizations_Add.sql" />
+    <Build Include="StoredProcedures\auth_Organizations_Update.sql" />
+    <Build Include="StoredProcedures\auth_Organizations_Get.sql" />
+    <None Include="Triggers\OrganizationsAuditTrigger.sql" />
+    <None Include="Triggers\GroupUsersAuditTrigger.sql" />
+    <None Include="Triggers\GroupsAuditTrigger.sql" />
+    <None Include="Triggers\GroupRolesAuditTrigger.sql" />
+    <Build Include="Tables\TimeZones.sql" />
+    <Build Include="Tables\TimeZoneUTCs.sql" />
+    <Build Include="StoredProcedures\auth_TimeZones_GetAll.sql" />
+    <Build Include="StoredProcedures\auth_TimeZoneUTCs_GetAll.sql" />
+    <Build Include="StoredProcedures\auth_Groups_Get.sql" />
+    <Build Include="Tables\TimeZones.sql" />
+    <Build Include="Tables\TimeZoneUTCs.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_UpdateTokenExpireTime.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_Search.sql" />
+    <Build Include="DataTypes\BigIntList.sql" />
+    <Build Include="StoredProcedures\auth_ApiUsers_GetByGroupId.sql" />
+    <Build Include="StoredProcedures\auth_GroupRoles_DeleteByGroupId.sql" />
+    <Build Include="StoredProcedures\auth_GroupUsers_DeleteByGroupId.sql" />
+    <None Include="Triggers\ApiClientRolesAuditTrigger.sql" />
+    <Build Include="StoredProcedures\auth_Audiences_GetAll.sql" />
+    <Build Include="StoredProcedures\auth_Groups_GetByUserSystemId.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Vulcan.Core.Auth.Database.publish.xml" />
+    <PostDeploy Include="PostDeploymentScripts\PostDeployment.Data.sql" />
+    <None Include="PostDeploymentScripts\TimeZones.sql" />
+    <None Include="PostDeploymentScripts\StaticData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="NewSchema">
+      <DefaultValue>auth</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Vulcan.Core.Auth.Database.refactorlog" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,55 @@
+﻿<md-toolbar md-scroll-shrink class="md-hue-2">
+    <h2 class="md-toolbar-tools">Edit Group</h2>
+</md-toolbar>
+<md-content flex layout-padding>
+    <form ng-submit="editGroup()">
+        <md-input-container class="md-block">
+            <input ng-model="group.name" type="text" placeholder="Group Name" required />
+        </md-input-container>
+
+        <md-input-container class="md-block">
+            <label>Descrption(Optional)</label>
+            <textarea ng-model="group.description" md-maxlength="200" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+
+        <md-content class="md-padding" layout="column">
+            <p class="md-title">Select Roles</p>
+
+            <md-chips ng-model="group.selectedRoles" md-autocomplete-snap="" md-require-match="true">
+                <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)" md-item-text="item.name" placeholder="Add Role" md-autoselect>
+                    <span md-highlight-text="searchText">{{item.title}}</span>
+                </md-autocomplete>
+                <md-chip-template>
+                    <span>
+                        <strong>{{$chip.title}}</strong>
+                    </span>
+                </md-chip-template>
+            </md-chips>
+
+            <md-list>
+                <md-list-item class="md-2-line allrole-option" ng-repeat="role in allroles" layout="row" layout-wrap="">
+                    <div class="md-item-text md-whiteframe-z1" flex align="center">
+                        <h3>{{role.title}}</h3>
+                    </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+        <md-content class="md-padding" layout="column">
+            <h2 class="md-title">Select Users</h2>
+
+            <md-chips ng-model="group.selectedUsers" md-autocomplete-snap="" md-require-match="true">
+                <md-autocomplete md-selected-item="selectedUser" md-search-text="searchText" md-items="item in querySearchUsers(searchText)" md-item-text="item.name" placeholder="Add Users" md-autoselect>
+                    <span md-highlight-text="searchText">{{item.displayName}}</span>
+                </md-autocomplete>
+                <md-chip-template>
+                    <span>
+                        <strong>{{$chip.displayName}}</strong>
+                    </span>
+                </md-chip-template>
+            </md-chips>
+        </md-content>
+        <section layout="row" layout-align="center center" layout-wrap>
+            <md-button type="submit" class="md-raised md-primary" ng-click="saveEdited()">Submit</md-button>
+        </section>
+    </form>
+</md-content>

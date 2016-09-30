@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="c90e8ea0-5e21-41cd-ab05-0e043c1aad8e" ChangeDateTime="04/21/2016 05:20:07">
+    <Property Name="ElementName" Value="[auth].[Organization].[Timezone]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[auth].[Organization]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TimeZone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="72d3f9fc-acca-4aa0-a96b-19b4d3694146" ChangeDateTime="04/21/2016 09:01:51">
+    <Property Name="ElementName" Value="[auth].[Organization].[TimeZone]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[auth].[Organization]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Timezone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6dd17373-d448-4a14-88e8-c6fffa8006eb" ChangeDateTime="04/26/2016 05:34:37">
+    <Property Name="ElementName" Value="[auth].[TimeZones].[Text]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[auth].[TimeZones]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Is" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="49c1df6d-f859-45ed-8202-7dae10555da8" ChangeDateTime="04/26/2016 05:34:50">
+    <Property Name="ElementName" Value="[auth].[TimeZones].[Is]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[auth].[TimeZones]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Isdst" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="03e504ee-9a55-4019-ae67-a062439a56ff" ChangeDateTime="04/26/2016 06:07:57">
+    <Property Name="ElementName" Value="[auth].[TimeZones].[Text]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[auth].[TimeZones]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Isde" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2d8bc98f-1075-49c9-8a78-944cb2be0764" ChangeDateTime="04/26/2016 06:08:10">
+    <Property Name="ElementName" Value="[auth].[TimeZones].[Isde]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[auth].[TimeZones]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Isdst" />
+  </Operation>
+</Operations>
